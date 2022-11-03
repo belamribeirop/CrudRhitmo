@@ -1,0 +1,23 @@
+mat-toolbar {
+  background-color: #0A0A3C;
+  color: #FFFF
+}
+
+.nav{
+  display: flex;
+  > div{
+    display: flex;
+    justify-content: center;
+    align-items:  center;
+  }
+}
+.top-bar{
+  justify-content: space-between;
+}
+.nav-icon {
+  margin: auto 1rem;
+  font-size: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

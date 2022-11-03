@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <mat-toolbar-row class="top-bar">
+    <img src="../../../assets/logo.svg" />
+    <div class="nav">
+      <div
+        *ngFor="let item of menuItems; let i = index"
+        [routerLink]="[item.link]"
+      >
+        <span> {{ item.name }}</span>
+        <mat-icon
+          class="nav-icon"
+          *ngIf="i < menuItems.length - 1"
+          fontIcon="circle"
+        ></mat-icon>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
