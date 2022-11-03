@@ -79,12 +79,7 @@ export class EditClientComponent implements OnInit {
   getClient(id: string) {
     this.clientService.getById(id).subscribe({
       next: (client) => {
-        const state: State = {
-          nome: client.state.nome,
-          id: client.state.id,
-          sigla: client.state.sigla,
-        };
-        this.clientForm.patchValue({ ...client, state: state });
+        this.clientForm.patchValue(client);
         this.getCities();
       },
       error: () => {},
