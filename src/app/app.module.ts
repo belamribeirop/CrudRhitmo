@@ -23,6 +23,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogModule } from '@angular/cdk/dialog';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { DialogModule } from '@angular/cdk/dialog';
     MatButtonModule,
     MatDialogModule,
     DialogModule,
+    NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

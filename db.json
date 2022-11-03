@@ -129,6 +129,71 @@
       "expirationMonth": "5",
       "expirationYear": "2027",
       "cvv": 343
+    },
+    {
+      "id": "JJ8wCWU",
+      "createdAt": "2022-11-03T17:02:02.289Z",
+      "name": "Isa2",
+      "cpf": "23434565434",
+      "email": "fdvd@csf",
+      "address": "334fdrgd",
+      "cep": "4543344",
+      "state": {
+        "id": 14,
+        "sigla": "RR",
+        "nome": "Roraima",
+        "regiao": {
+          "id": 1,
+          "sigla": "N",
+          "nome": "Norte"
+        }
+      },
+      "city": {
+        "id": 1400175,
+        "nome": "Cantá",
+        "microrregiao": {
+          "id": 14002,
+          "nome": "Nordeste de Roraima",
+          "mesorregiao": {
+            "id": 1401,
+            "nome": "Norte de Roraima",
+            "UF": {
+              "id": 14,
+              "sigla": "RR",
+              "nome": "Roraima",
+              "regiao": {
+                "id": 1,
+                "sigla": "N",
+                "nome": "Norte"
+              }
+            }
+          }
+        },
+        "regiao-imediata": {
+          "id": 140001,
+          "nome": "Boa Vista",
+          "regiao-intermediaria": {
+            "id": 1401,
+            "nome": "Boa Vista",
+            "UF": {
+              "id": 14,
+              "sigla": "RR",
+              "nome": "Roraima",
+              "regiao": {
+                "id": 1,
+                "sigla": "N",
+                "nome": "Norte"
+              }
+            }
+          }
+        }
+      },
+      "payment": "1",
+      "creditCardName": "dfsdrfdg",
+      "creditCardNumber": "3243564367543676",
+      "expirationMonth": "4",
+      "expirationYear": "2026",
+      "cvv": "454"
     }
   ]
 }

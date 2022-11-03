@@ -33,20 +33,32 @@ export class EditClientComponent implements OnInit {
     id: [''],
     createdAt: [new Date()],
     name: ['', [Validators.required]],
-    cpf: ['', [Validators.required]],
+    cpf: [
+      '',
+      [Validators.required, Validators.minLength(11), Validators.maxLength(11)],
+    ],
     email: ['', [Validators.required, Validators.email]],
     address: ['', [Validators.required]],
-    cep: ['', [Validators.required]],
+    cep: [
+      '',
+      [Validators.required, Validators.minLength(8), Validators.maxLength(8)],
+    ],
     state: [{} as State, [Validators.required]],
     city: [{} as City, [Validators.required]],
     payment: ['1', [Validators.required]],
-    creditCardName: ['', [Validators.required]],
-    creditCardNumber: ['', [Validators.required]],
+    creditCardName: [
+      '',
+      [Validators.required, Validators.minLength(16), Validators.maxLength(16)],
+    ],
+    creditCardNumber: ['', [Validators.required, Validators.pattern('[0-9]*')]],
     expirationMonth: ['', [Validators.required]],
     expirationYear: ['', [Validators.required]],
-    cvv: ['', [Validators.required]],
+    cvv: [
+      '',
+      [Validators.required, Validators.minLength(3), Validators.maxLength(3)],
+    ],
   });
-
+  //
   constructor(
     private fb: FormBuilder,
     private router: Router,

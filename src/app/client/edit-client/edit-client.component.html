@@ -1,5 +1,7 @@
 <div class="container">
-  <h1>Cadastro</h1>
+  <div class="header">
+    <h1>Cadastro</h1>
+  </div>
   <form class="form" [formGroup]="clientForm" (ngSubmit)="handleSubmit()">
     <mat-form-field appearance="fill">
       <mat-label>Nome</mat-label>
@@ -11,7 +13,13 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>CPF</mat-label>
-      <input matInput formControlName="cpf" />
+      <input
+        mask="000.000.000-99"
+        matInput
+        formControlName="cpf"
+        type="text"
+        pattern="[0-9]*"
+      />
     </mat-form-field>
     <div class="grid2">
       <mat-form-field appearance="fill">
@@ -30,7 +38,7 @@
     <div class="grid2">
       <mat-form-field appearance="fill">
         <mat-label>CEP</mat-label>
-        <input matInput formControlName="cep" />
+        <input mask="00000-99" matInput formControlName="cep" />
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Cidade</mat-label>
@@ -77,11 +85,15 @@
       <div class="grid2">
         <mat-form-field appearance="fill">
           <mat-label>Número do cartão</mat-label>
-          <input matInput formControlName="creditCardNumber" />
+          <input
+            mask="9999 9999 9999 9999"
+            matInput
+            formControlName="creditCardNumber"
+          />
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Código de segurança</mat-label>
-          <input type="number" matInput formControlName="cvv" />
+          <input mask="999" matInput formControlName="cvv" />
         </mat-form-field>
       </div>
       <p>Seu cartão será debitado em R$49,00</p>
