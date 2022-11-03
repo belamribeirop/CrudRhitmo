@@ -46,11 +46,11 @@ export class EditClientComponent implements OnInit {
     state: [{} as State, [Validators.required]],
     city: [{} as City, [Validators.required]],
     payment: ['1', [Validators.required]],
-    creditCardName: [
+    creditCardName: ['', [Validators.required]],
+    creditCardNumber: [
       '',
       [Validators.required, Validators.minLength(16), Validators.maxLength(16)],
     ],
-    creditCardNumber: ['', [Validators.required, Validators.pattern('[0-9]*')]],
     expirationMonth: ['', [Validators.required]],
     expirationYear: ['', [Validators.required]],
     cvv: [
@@ -79,7 +79,13 @@ export class EditClientComponent implements OnInit {
   getClient(id: string) {
     this.clientService.getById(id).subscribe({
       next: (client) => {
-        this.clientForm.patchValue({ ...client });
+        const state: State = {
+          nome: client.state.nome,
+          id: client.state.id,
+          sigla: client.state.sigla,
+        };
+        this.clientForm.patchValue({ ...client, state: state });
+        this.getCities();
       },
       error: () => {},
     });
@@ -118,8 +124,20 @@ export class EditClientComponent implements OnInit {
       return this.clientForm.valid;
     }
   }
+  compareStates(p1: State, p2: State): boolean {
+    if (p1 && p2) {
+      return p1.id === p2.id;
+    }
+    return false;
+  }
+  compareCities(p1: City, p2: City): boolean {
+    if (p1 && p2) {
+      return p1.id === p2.id;
+    }
+    return false;
+  }
   handleSubmit() {
-    let client: Client = this.clientForm.value as Client;
+    const client: Client = this.clientForm.value as Client;
     if (this.id) {
       this.clientService.put(client).subscribe({
         next: () => {

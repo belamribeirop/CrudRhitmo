@@ -28,7 +28,11 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Estado</mat-label>
-        <mat-select (selectionChange)="getCities()" formControlName="state">
+        <mat-select
+          (selectionChange)="getCities()"
+          formControlName="state"
+          [compareWith]="compareStates"
+        >
           <mat-option *ngFor="let state of states" [value]="state">
             {{ state.nome }}
           </mat-option>
@@ -38,11 +42,11 @@
     <div class="grid2">
       <mat-form-field appearance="fill">
         <mat-label>CEP</mat-label>
-        <input mask="00000-99" matInput formControlName="cep" />
+        <input mask="00000-999" matInput formControlName="cep" />
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Cidade</mat-label>
-        <mat-select formControlName="city">
+        <mat-select formControlName="city" [compareWith]="compareCities">
           <mat-option *ngFor="let city of cities" [value]="city">
             {{ city.nome }}
           </mat-option>
