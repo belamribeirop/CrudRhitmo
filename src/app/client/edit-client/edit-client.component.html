@@ -1,0 +1,94 @@
+<div class="container">
+  <h1>Cadastro</h1>
+  <form class="form" [formGroup]="clientForm" (ngSubmit)="handleSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>E-mail</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>CPF</mat-label>
+      <input matInput formControlName="cpf" />
+    </mat-form-field>
+    <div class="grid2">
+      <mat-form-field appearance="fill">
+        <mat-label>Endereço</mat-label>
+        <input matInput formControlName="address" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <mat-select (selectionChange)="getCities()" formControlName="state">
+          <mat-option *ngFor="let state of states" [value]="state">
+            {{ state.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="grid2">
+      <mat-form-field appearance="fill">
+        <mat-label>CEP</mat-label>
+        <input matInput formControlName="cep" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Cidade</mat-label>
+        <mat-select formControlName="city">
+          <mat-option *ngFor="let city of cities" [value]="city">
+            {{ city.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <span> Forma de Pagamento</span>
+
+    <mat-radio-group formControlName="payment">
+      <mat-radio-button value="1" [checked]="true">
+        Cartão de crédito
+      </mat-radio-button>
+      <mat-radio-button value="2">Boleto Bancário</mat-radio-button>
+    </mat-radio-group>
+    <div *ngIf="clientForm.value.payment === '1'">
+      <div class="grid2">
+        <mat-form-field appearance="fill">
+          <mat-label>Nome do cartão</mat-label>
+          <input matInput formControlName="creditCardName" />
+        </mat-form-field>
+        <div class="grid2">
+          <mat-form-field appearance="fill">
+            <mat-label>Mes de expiração</mat-label>
+            <mat-select formControlName="expirationMonth">
+              <mat-option *ngFor="let month of months" [value]="month">
+                {{ month }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Ano de expiração</mat-label>
+            <mat-select formControlName="expirationYear">
+              <mat-option *ngFor="let year of years" [value]="year">
+                {{ year }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="grid2">
+        <mat-form-field appearance="fill">
+          <mat-label>Número do cartão</mat-label>
+          <input matInput formControlName="creditCardNumber" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Código de segurança</mat-label>
+          <input type="number" matInput formControlName="cvv" />
+        </mat-form-field>
+      </div>
+      <p>Seu cartão será debitado em R$49,00</p>
+    </div>
+    <button type="submit" mat-raised-button [disabled]="!isFormValid()">
+      Realizar matrícula
+    </button>
+    <span>Informações seguras e criptografadas</span>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+.container {
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  .grid2{
+    display: grid;;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+.card-info {
+  display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+button{
+  background-color: #377DC0;
+  color: #fff;
+}
